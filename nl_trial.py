@@ -28,4 +28,20 @@ print(test_words_set.intersection(set(stopwords.words('english'))))
 filtered = [w for w in test_words if(w not in stopwords.words('english'))]
 print(filtered)
 
+# tags 
+from nltk import pos_tag 
+tags = pos_tag(tokens)
+print(tags)
+
+from nltk import RegexpParser
+sentence = [('the', 'DT'), ('little','JJ'), ('yellow','JJ'),('dog','NN'),('died','VBD')]
+grammer = "MY_NP: {<DT>?<JJ>*<NN>}"
+cp = nltk.RegexpParser(grammer)
+result = cp.parse(sentence)
+print(result)
+#result.draw()
+
+from nltk import ne_chunk 
+sentence = "Edison went to Tsignhua University today"
+print(ne_chunk(pos_tag(word_tokenize(sentence))))
 

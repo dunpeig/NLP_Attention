@@ -37,6 +37,14 @@ def text_clean(text):
     tokens = word_tokenize(text_no_whitespace)
     print('result:', tokens, '\n')
 
+    # remove stop words 
+    list_no_stopwords = [i for i in tokens if not i in cache_english_stopwords]
+    print("remove stopwords: ", list_no_stopwords, '\n')
+
+    # results after filter 
+    text_filtered = ' '.join(list_no_stopwords)
+    print("results after filter: ", text_filtered)
+
 text_clean(s)
 
 

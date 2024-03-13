@@ -4,7 +4,8 @@ from nltk.corpus import stopwords
 import nltk
 from nltk.tokenize import word_tokenize 
 from nltk.text import Text
-
+import pandas as pd
+import spacy 
 s = ' RT @ Amila #Test\nTom\'s newly listed Co    &amp: Mary\'s unlisted        Group to supply tech for nltk. \nh $TSLA $AAPL https:// t.co/x34afsfQsh'
 
 cache_english_stopwords = stopwords.words('english')
@@ -49,7 +50,7 @@ text_clean(s)
 
 
 # spaCy
-import spacy 
+
 
 # English 
 nlp = spacy.load('en_core_web_sm')
@@ -93,6 +94,4 @@ def find_person(doc):
             c[ent.lemma_] += 1
     return c.most_common(10)
 print(find_person(processed_text))
-
-
 
